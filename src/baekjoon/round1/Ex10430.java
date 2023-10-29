@@ -1,4 +1,4 @@
-package baekjoon;
+package baekjoon.round1;
 
 import java.util.Scanner;
 

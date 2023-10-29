@@ -1,4 +1,4 @@
-package baekjoon;
+package baekjoon.round1;
 
 public class Ex10172 {
     public static void main(String[] args) {
