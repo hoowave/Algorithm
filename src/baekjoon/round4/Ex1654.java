@@ -17,6 +17,7 @@ public class Ex1654 {
         for (int i = 0; i < n; i++) {
             arr[i] = Integer.parseInt(br.readLine());
         }
+
         Arrays.sort(arr);
         long max = arr[n - 1];
         long min = 1;
