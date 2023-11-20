@@ -68,8 +68,78 @@ public class Training {
 
     }
 
+    public void ex4() {
+        int n = sc.nextInt();
+        int[] answer = new int[n];
+        answer[0] = 1;
+        answer[1] = 1;
+        for (int i = 2; i < answer.length; i++) {
+            answer[i] = answer[i - 1] + answer[i - 2];
+        }
+        for (int rs : answer) {
+            System.out.print(rs + " ");
+        }
+    }
+
+    public void ex5() {
+        int n = sc.nextInt();
+        int answer = 0;
+        int[] arr = new int[n + 1];
+        for (int i = 2; i < arr.length; i++) {
+            if (arr[i] == 0) {
+                answer++;
+                for (int j = i; j < arr.length; j = j + i) {
+                    arr[j] = 1;
+                }
+            }
+        }
+        System.out.println(answer);
+    }
+
+    public boolean ex6_1(int num) {
+        if (num == 1) return false;
+        for (int i = 2; i < num; i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void ex6() {
+        int n = sc.nextInt();
+        int[] m = new int[n];
+        for (int i = 0; i < n; i++) {
+            String temp = sc.next();
+            temp = new StringBuilder(temp).reverse().toString();
+            m[i] = Integer.parseInt(temp);
+        }
+        for (int rs : m) {
+            if (ex6_1(rs)) {
+                System.out.print(rs + " ");
+            }
+        }
+    }
+
+    public void ex7() {
+        int answer = 0;
+        int n = sc.nextInt();
+        int[] m = new int[n];
+        int score = 0;
+        for (int i = 0; i < n; i++) {
+            m[i] = sc.nextInt();
+            if (m[i] == 1) {
+                score++;
+            } else {
+                score = 0;
+            }
+            answer += score;
+        }
+        System.out.print(answer);
+    }
+
     public static void main(String args[]) {
         Training T = new Training();
-        T.ex3();
+        T.ex7();
     }
 }
