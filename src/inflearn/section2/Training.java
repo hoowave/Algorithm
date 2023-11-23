@@ -138,8 +138,64 @@ public class Training {
         System.out.print(answer);
     }
 
+    public void ex8() {
+        int[] answer;
+        int n = sc.nextInt();
+        int[] m = new int[n];
+        answer = new int[n];
+        for (int i = 0; i < n; i++) {
+            m[i] = sc.nextInt();
+        }
+        for (int i = 0; i < n; i++) {
+            int cnt = 1;
+            for (int j = 0; j < n; j++) {
+                if (m[i] < m[j]) cnt++;
+            }
+            answer[i] = cnt;
+        }
+        for (int rs : answer) System.out.print(rs + " ");
+    }
+
+    public void ex9() {
+        int answer = 0;
+        int n = sc.nextInt();
+        int[][] m = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                m[i][j] = sc.nextInt();
+            }
+        }
+        int max = Integer.MIN_VALUE;
+        ArrayList<Integer> list = new ArrayList<>();
+        int lt = 0;
+        int rt = 0;
+        for (int i = 0; i < n; i++) {
+            int sum = 0;
+            for (int j = 0; j < n; j++) {
+                sum += m[i][j];
+            }
+            list.add(sum);
+            sum = 0;
+            for (int j = 0; j < n; j++) {
+                sum += m[j][i];
+            }
+            list.add(sum);
+            lt += m[i][i];
+            rt += m[n - 1 - i][i];
+        }
+        list.add(lt);
+        list.add(rt);
+        for(int rs : list){
+            if(max<rs){
+                max = rs;
+                answer = rs;
+            }
+        }
+        System.out.println(answer);
+    }
+
     public static void main(String args[]) {
         Training T = new Training();
-        T.ex7();
+        T.ex9();
     }
 }
